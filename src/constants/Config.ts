@@ -1,5 +1,6 @@
 import JsonManager from '@utils/JsonManager'
 import { ActivityType, ClientOptions, Partials, User } from 'discord.js'
+require('dotenv').config()
 
 export default class Config {
     private static readonly configPath: string = __dirname + '/../../config.json'
