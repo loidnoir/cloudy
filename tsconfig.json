@@ -11,7 +11,7 @@
         "strict": true,
         "allowJs": true,
         "checkJs": true,
-        "sourceMap": true,
+        "sourceMap": false,
         "rootDir": "./src",
         "outDir": "./dist",
         "importHelpers": true,
