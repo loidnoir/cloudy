@@ -1,8 +1,0 @@
-{
-    "system": {
-        "name": "Cloudy",
-        "description": "I'm Cloudy\nI give short answers",
-        "aliases": ["cloudy", "kido", "kid"],
-        "whitelist": []
-    }
-}
