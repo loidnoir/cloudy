@@ -3,7 +3,7 @@ import User from '@structures/User'
 import Logger from '@utils/Logger'
 import Config from '../constants/Config'
 
-export default async function ask(client: Client, userId: string, message: string) {
+export default async function ask(client: Client, userId: string, message: string, context?: string) {
     const user = await User.get(client, userId)
     const isLoid = userId == Config.admin ? 'User is your creator' : ''
     const date = new Date()
@@ -53,7 +53,9 @@ export default async function ask(client: Client, userId: string, message: strin
         messages: [
             {
                 role: 'system',
-                content: `${Config.getConfig().system.description}\nCurrent time ${formattedTime}\n${isLoid}`,
+                content: `${
+                    Config.getConfig().system.description
+                }\nCurrent time ${formattedTime}\n${context}\n${isLoid}`,
             },
             {
                 role: 'user',
