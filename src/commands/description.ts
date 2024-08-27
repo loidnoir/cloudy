@@ -3,8 +3,6 @@ import Command from '@structures/Command'
 import Logger from '@utils/Logger'
 import { SlashCommandBuilder } from 'discord.js'
 
-const currentDescription = Config.getConfig().system.description
-
 const commandData = new SlashCommandBuilder()
     .setName('description')
     .setDescription('Change the system message description')

@@ -70,6 +70,18 @@ export default class Config {
         data.system.description = description
         JsonManager.writeJsonFile(Config.configPath, data)
     }
+
+    public static addAlias(aliases: string[]): void {
+        const data = JsonManager.readFile(Config.configPath) as IConfig
+        data.system.aliases = data.system.aliases.concat(aliases)
+        JsonManager.writeJsonFile(Config.configPath, data)
+    }
+
+    public static removeAlias(alias: string): void {
+        const data = JsonManager.readFile(Config.configPath) as IConfig
+        data.system.aliases = data.system.aliases.filter(entry => entry !== alias)
+        JsonManager.writeJsonFile(Config.configPath, data)
+    }
 }
 
 interface IConfig {
@@ -77,5 +89,6 @@ interface IConfig {
         name: string
         description: string
         whitelist: string[]
+        aliases: string[]
     }
 }

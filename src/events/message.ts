@@ -3,13 +3,17 @@ import Event from '@structures/Event'
 import ask from '@utils/AskGPT'
 
 const messageEvent = new Event('messageCreate').setLogic(async (client, message) => {
-    if (!message.channel.isDMBased()) return
     if (message.author.bot) return
     if (!Config.isUser(message.author) && !Config.isAdmin(message.author.id)) return
 
+    const aliases = Config.getConfig().system.aliases
+    const isMessageContainAlias = message.content.split(' ').some(word => aliases.includes(word))
+
+    if (!isMessageContainAlias || message.channel.isDMBased()) return
+
     await message.channel.sendTyping().then(async a => {
         const response = await ask(client, message.author.id, message.content)
-        await message.reply(response ?? 'Something went wrong')
+        await message.reply({ content: response ?? 'Something went wrong', allowedMentions: { repliedUser: false } })
     })
 })
 

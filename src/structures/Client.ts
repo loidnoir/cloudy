@@ -79,6 +79,8 @@ export default class Client extends BaseClient {
                 withFileTypes: true,
             })
 
+            // this.application?.commands.set([])
+
             for (const entry of entries) {
                 const fullPath = path.join(currentPath!, entry.name)
 
