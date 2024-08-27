@@ -4,6 +4,7 @@
     },
     "compilerOptions": {
         "moduleResolution": "node",
+        "skipLibCheck": true,
         "module": "CommonJS",
         "target": "ESNext",
         "lib": ["ESNext"],

@@ -14,7 +14,7 @@
     "prisma": "^5.18.0"
   },
   "devDependencies": {
-    "@types/node": "^22.4.2",
+    "@types/node": "^22.5.0",
     "@types/node-cron": "^3.0.11",
     "@types/nodemon": "^1.19.6",
     "dotenv": "^16.4.5",
