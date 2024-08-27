@@ -23,3 +23,5 @@ const descriptionCommand = new Command<SlashCommandBuilder>().setData(commandDat
     Logger.infoMessage(`Description changed to ${newDescription}`)
     interaction.reply({ content: 'Description updated', ephemeral: true })
 })
+
+export default descriptionCommand
