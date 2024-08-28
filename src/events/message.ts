@@ -13,7 +13,7 @@ const messageEvent = new Event('messageCreate').setLogic(async (client, message)
         const originalMessage = await message.channel.messages.fetch(message.reference.messageId)
 
         if (originalMessage.author.id == client.user?.id) {
-            replyMessage(client, message, `Replying to this: "${originalMessage.content}"`)
+            replyMessage(client, message, `Replying message: "${originalMessage.content}"`)
         }
     }
 
@@ -22,7 +22,7 @@ const messageEvent = new Event('messageCreate').setLogic(async (client, message)
         const isMessageContainAlias = message.content.split(' ').some(word => aliases.includes(word))
 
         if (isMessageContainAlias) replyMessage(client, message)
-    }
+    } else replyMessage(client, message)
 })
 
 async function replyMessage(client: Client, message: Message, context?: string) {
