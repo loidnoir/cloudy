@@ -15,9 +15,7 @@ const messageEvent = new Event('messageCreate').setLogic(async (client, message)
         if (originalMessage.author.id == client.user?.id) {
             replyMessage(client, message, `Replying message: "${originalMessage.content}"`)
         }
-    }
-
-    if (!message.channel.isDMBased()) {
+    } else if (!message.channel.isDMBased()) {
         const aliases = Config.getConfig().system.aliases
         const isMessageContainAlias = message.content.split(' ').some(word => aliases.includes(word))
 
